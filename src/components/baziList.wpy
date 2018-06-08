@@ -1,0 +1,97 @@
+<style>
+.baziList {
+  display: flex;
+  flex-direction: column;
+  width: 750rpx;
+  height: 148rpx;
+}
+
+.tg {
+  border: 1rpx dashed #979797;
+  width: 45rpx;
+  font-size: 26rpx;
+  color: #9b9b9b;
+  justify-content: center;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  border-bottom: 0rpx;
+}
+
+.dz {
+  border: 1rpx dashed #979797;
+  width: 45rpx;
+  font-size: 26rpx;
+  color: #9b9b9b;
+  justify-content: center;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+}
+.sectionview {
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  height: 100%;
+  align-items: center;
+}
+.rizhu {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  margin: 0 0 0 40rpx;
+}
+.rightview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 650rpx;
+}
+.nick {
+  font-size: 34rpx;
+  color: #4a4a4a;
+}
+.birth {
+  font-size: 34rpx;
+  color: #999;
+  margin: 0 40rpx 0 0;
+}
+</style>
+
+<template>
+  <repeat for="{{baziDataSet}}" key="id" index="index" item="item">
+    <view class='baziList' @tap='openBaziDetail(item.id)'>  
+            <view class='sectionview'>
+                <view class='rizhu'>
+                    <text class='tg'>{{item.tg}}</text>
+                    <text class='dz'>{{item.dz}}</text>
+                </view> 
+                <view class='rightview'>
+                    <text class='nick'>{{item.nick}}</text>
+                    <text class='birth'>{{item.birth}}</text>
+                </view>
+            </view>
+               
+            <view class='line_split'></view>   </view>
+        </repeat>
+ 
+</template>
+
+
+<script>
+import wepy from 'wepy';
+import navNew from '../commonfile/commonjs';  
+
+export default class BaziList extends wepy.component {
+  props = {
+    baziDataSet: {
+      type: String,
+      default: 'null'
+    }
+  };
+  methods = {
+    openBaziDetail(param) {
+      navNew('mp', './baziDetail');
+    }
+  };
+}
+</script>

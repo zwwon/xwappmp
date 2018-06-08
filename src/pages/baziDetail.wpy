@@ -1,0 +1,15 @@
+<style>
+</style>
+
+<template>
+    <view>hello world</view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class BaziDetail extends wepy.page {
+  data = {
+    aa: ''
+  };
+}
+</script>

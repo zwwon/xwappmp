@@ -1,0 +1,31 @@
+.small-grey-text {
+    font-size: 26rpx;
+    color: #9b9b9b;
+  }
+
+  .line_split {
+    width: 750px;
+    height: 1.5rpx;
+    background-color: #e5e5e5;
+    margin: 10rpx 0 0
+  }
+  
+  .muColor {
+    color: #7ed321;
+  }
+  
+  .huoColor {
+    color: #d0021b;
+  }
+  
+  .tuColor {
+    color: #857c0c;
+  }
+  
+  .jinColor {
+    color: #f5a623;
+  }
+  
+  .shuiColor {
+    color: #1f6ac0;
+  }

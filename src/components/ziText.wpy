@@ -1,0 +1,62 @@
+<style>
+.ziclass
+{
+  font-weight: 500;
+}
+</style>
+<template>
+    <text class='{{ziColor}} ziclass'>{{zi}}</text>
+</template>
+<script>
+import wepy from 'wepy';
+export default class ZiText extends wepy.component {
+  props = {
+    zi: {
+      type: String,
+      default: '八'
+    }
+  };
+  computed = {
+    getColor() {
+      var e = this.zi;
+      var c;
+      if (e == '甲' || e == '乙' || e == '寅' || e == '卯' || e == '辰') {
+        c = 'muColor';
+      } else if (
+        e == '丙' ||
+        e == '丁' ||
+        e == '巳' ||
+        e == '午' ||
+        e == '未'
+      ) {
+        c = 'huoColor';
+      } else if (e == '戊' || e == '己') {
+        c = 'tuColor';
+      } else if (
+        e == '庚' ||
+        e == '辛' ||
+        e == '申' ||
+        e == '酉' ||
+        e == '戌'
+      ) {
+        c = 'jinColor';
+      } else if (
+        e == '壬' ||
+        e == '癸' ||
+        e == '亥' ||
+        e == '子' ||
+        e == '丑'
+      ) {
+        c = 'shuiColor';
+      }
+      this.ziColor = c;
+    }
+  };
+  data = {
+    ziColor: ''
+  };
+  onLoad() {    
+
+  }
+}
+</script>

@@ -1,0 +1,110 @@
+<style>
+@import '/commonfile/common.wxss'; /*引入公共样式*/
+</style>
+<style>
+.baiziMain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.danzhu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
+<template>
+    <view class='baiziMain'>
+        <view class='danzhu'>
+          <text class='small-grey-text'>年</text>
+          <ziText1 :zi.sync='nianT'></ziText1>
+           <ziText2 :zi.sync='nianD'></ziText2>
+        </view>
+        <view class='danzhu'>
+          <text class='small-grey-text'>月</text>
+          <ziText3 :zi.sync='yueT'></ziText3>
+          <ziText4 :zi.sync='yueD'></ziText4>
+
+        </view>
+        <view class='danzhu'> 
+            <text class='small-grey-text'>日</text>
+            <ziText5 :zi.sync='riT'></ziText5>
+            <ziText6 :zi.sync='riD'></ziText6>
+        </view>
+        <view class='danzhu'> 
+            <text  class='small-grey-text'>时</text>
+            <ziText7 :zi.sync='shiT'></ziText7>
+            <ziText8 :zi.sync='shiD'></ziText8>
+
+        </view>
+     </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import ZiText from '../components/ziText';
+
+export default class BaziMain extends wepy.component {
+  props = {
+    /*传入八字，
+    字符串格式为 [年柱 月柱 日柱 时柱]
+    如： 甲子乙亥丙戌丁丑
+    */
+    bazi: {
+      type: String,
+      default: ''
+    }
+  };
+
+  data = {
+    nianT: '',
+    nianD: '',
+    yueT: '',
+    yueD: '',
+    riT: '',
+    riD: '',
+    shiT: '',
+    shiD: ''
+  };
+
+  components = {
+    ziText1: ZiText,
+    ziText1: ZiText,
+    ziText2: ZiText,
+    ziText3: ZiText,
+    ziText4: ZiText,
+    ziText5: ZiText,
+    ziText6: ZiText,
+    ziText7: ZiText,
+    ziText8: ZiText
+  };
+
+  computed = {};
+
+  methods = {};
+
+  watch = {
+    bazi(newValue, oldValue) {
+      var strBazi = this.bazi.toString();
+      if (strBazi.length >= 8) {
+        var a = strBazi.replace(' ', '').split('');
+        if ((a.length = 8)) {
+          this.nianT = a[0];
+          this.nianD = a[1];
+          this.yueT = a[2];
+          this.yueD = a[3];
+          this.riT = a[4];
+          this.riD = a[5];
+          this.shiT = a[6];
+          this.shiD = a[7];
+          this.$apply();
+        }
+      }
+    }
+  };
+
+  onLoad() {}
+}
+</script>
+

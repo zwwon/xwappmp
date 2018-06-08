@@ -1,0 +1,194 @@
+<style lang="less">
+.jsjview {
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  margin-top: 30rpx;
+}
+.jsjtxtview {
+  text-align: center;
+  align-content: center;
+  width: 30%;
+}
+.jsjtext {
+  border: dotted 1px #979797;
+  font-size: 30rpx;
+  color: #9b9b9b;
+  writing-mode: vertical-lr;
+  letter-spacing: 10rpx;
+  padding: 10rpx 10rpx 0 10rpx;
+}
+.bazigroup {
+  width: 55%;
+}
+.riqi {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 750rpx;
+  margin: 20rpx 0 0 0;
+}
+.gongli {
+  padding: 0 0 0 20rpx;
+}
+.nongli {
+  padding: 0 40rpx 0 0;
+}
+</style>
+<template>
+  <view class="container">
+    <banner></banner>
+    <view class='jsjview'>
+      <view class='jsjtxtview'>
+          <text class='jsjtext'>即时局</text>
+      </view>
+      <view class='bazigroup'>
+        <!-- <baziMain :bazi.sync='jsjbazi'></baziMain> -->
+        <baziMain :bazi.sync='jsjbazi'></baziMain>
+      </view>
+    </view>
+    <view class='riqi'>
+      <label class='small-grey-text gongli'>{{gongli}}</label>
+      <label class='small-grey-text nongli'>{{nongli}}</label>
+    </view>
+    <view class='line_split'></view>
+    <view>
+      <baziList :baziDataSet.sync='baziDataSet'></baziList>
+    </view>
+
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import Banner from '../components/banner';
+import BaziMain from '../components/baziMain';
+import BaziList from '../components/baziList';
+
+export default class Index extends wepy.page {
+  data = {
+    jsjbazi: '',
+    gongli: '',
+    nongli: '',
+    baziDataSet:[]
+  };
+  config = {
+    navigationBarTitleText: 'test'
+  };
+
+  components = {
+    banner: Banner,
+    baziMain: BaziMain,
+    baziList: BaziList
+  };
+  onLoad() {
+    this.getInitData();
+    console.log('onLoad');
+  }
+  getInitData() {
+    this.jsjbazi = '甲子乙亥丙戌丁丑';
+    this.gongli = '2018年06月08日 11:30';
+    this.nongli = '二零一八年十一月二十一 午时';
+    this.baziDataSet = [
+      {
+        id: '00001',
+        tg: '甲',
+        dz: '子',
+        nick: '广思',
+        birth: '2018年06月08日'
+      },
+      {
+        id: '00002',
+        nick: '哈喽',
+        tg: '壬',
+        dz: '戌',
+        birth: '2018年03月08日'
+      },
+      {
+        id: '00003',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00004',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00005',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00006',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00007',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00008',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00009',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00020',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00011',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00007',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '00017',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      },
+      {
+        id: '001007',
+        nick: '哈喽的哥哥',
+        tg: '庚',
+        dz: '申',
+        birth: '2010年02月01日'
+      }
+    ];
+  }
+}
+</script>
