@@ -4,29 +4,54 @@
 <template>
     <view>
       <view>
-      <detailHeader :headerData.sync='detailHeader'></detailHeader>
+      <detailHeader :hData.sync='hdData'></detailHeader>
       </view>
       <view class='navView'>
-        </view>
-        <view wx:if='mingpan'>
-          <mingpan></mingpan>
-        </view>
-        <view wx:if='xipan'>
-          <xipan></xipan>
-        </view>
+      </view>
+      <view wx:if='mingPan'>
+          <mingpan :mData.sync='mpData'></mingpan>
+      </view>
+      <view wx:if='xiPan'>
+          <xipan :xData.sync='xpData'></xipan>
+      </view>
     </view>
 </template>
 
 <script>
 import wepy from 'wepy';
-import DetailHeader from '/components/detailHeader'
+import DetailHeader from '../components/detailHeader';
+import MingPan from '../components/mingPan';
+import XiPan from '../components/xiPan';
+
 export default class BaziDetail extends wepy.page {
   data = {
-    aa: ''
+    
   };
-  components={
-    detailHeader:DetailHeader
+  components = {
+    detailHeader: DetailHeader,
+    mingPan:MingPan,
+    xiPan:XiPan
+  };
+  onLoad(option) {
+    //从上级页面传递八字id过来
+    var id = option.id;
+    this.getInitData(id);
+  }
+  getInitData(id) {
+    //根据传递过来的八字ID获取页面中要呈现的信息
+    
+    //头部数据
+    this.hdData={
+
+    }
+    //命盘数据
+    this.mpData={
+
+    }
+    //细盘数据
+    this.xpData={
+
+    }
   }
 }
-
-</script>
+</script>ç

@@ -1,11 +1,36 @@
 <style>
-
+.dHeader {
+}
 </style>
 <template>
-    
+    <view calss='dHeader'>
+        <view class='rizhu'>
+            <text class='tg'>{{hData.tg}}</text>
+            <text class='dz'>{{hData.dz}}</text>
+        </view>
+         <view class='hleftView'>
+            <view class='nickView'>  
+                <text class='nick'>{{hData.nick}}</text>
+                <text class='bihua'>{{hData.bihua}}</text>
+            </view>
+            <view class='addrView'>
+                <text class='addr'>{{hData.addr}}</text>
+                <text class='nongli'>{{hData.nongli}}</text>
+            </view>
+            
+        </view>
+    </view>
+  
 </template>
 <script>
-export default class detailHeader extends wepy.component {
-    
+import wepy from 'wepy';
+
+export default class DetailHeader extends wepy.component {
+    props = {
+        hData:{
+            type:String,
+            default:''
+        }
+    }
 }
 </script>

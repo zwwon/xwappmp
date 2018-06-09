@@ -57,9 +57,9 @@
 }
 </style>
 
-<template>
+<template lang="pug">
   <repeat for="{{baziDataSet}}" key="id" index="index" item="item">
-    <view class='baziList' @tap='openBaziDetail(item.id)'>  
+    <view class='baziList' @tap='openBaziDetail({{item.id}})'>  
             <view class='sectionview'>
                 <view class='rizhu'>
                     <text class='tg'>{{item.tg}}</text>
@@ -90,7 +90,7 @@ export default class BaziList extends wepy.component {
   };
   methods = {
     openBaziDetail(param) {
-      navNew('mp', './baziDetail');
+      navNew('mp', './baziDetail?id='+param);
     }
   };
 }
