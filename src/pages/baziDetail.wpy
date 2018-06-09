@@ -2,15 +2,31 @@
 </style>
 
 <template>
-    <view>hello world</view>
+    <view>
+      <view>
+      <detailHeader :headerData.sync='detailHeader'></detailHeader>
+      </view>
+      <view class='navView'>
+        </view>
+        <view wx:if='mingpan'>
+          <mingpan></mingpan>
+        </view>
+        <view wx:if='xipan'>
+          <xipan></xipan>
+        </view>
+    </view>
 </template>
 
 <script>
 import wepy from 'wepy';
+import DetailHeader from '/components/detailHeader'
 export default class BaziDetail extends wepy.page {
   data = {
     aa: ''
   };
+  components={
+    detailHeader:DetailHeader
+  }
 }
 
 </script>

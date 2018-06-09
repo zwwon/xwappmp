@@ -11,7 +11,7 @@
   "author": "zwwon <guangsi@wugu66.com>",
   "license": "MIT",
   "dependencies": {
-    "wepy": "^1.6.0"
+    "wepy": "^1.7.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
